@@ -2,8 +2,7 @@
 The goal is to make a simulator similar to [Flightmare](https://github.com/uzh-rpg/flightmare) and [FlightGoggles](https://github.com/mit-aera/FlightGoggles) but with custom environments, support for ROS2, and interface with PX4 (for SITL).
 
 Current version provides minimal example of zala drone flying in the sky. In order to add anther environment create a new scene.
-Need many improvements.
-
+Need many improvements. [Also see the docs](docs/docs.md)
 Tested on Ubuntu 22.04 and Python 3.10.12. Should work on other platforms, need testing. 
 
 
@@ -26,8 +25,9 @@ Tested on Ubuntu 22.04 and Python 3.10.12. Should work on other platforms, need 
 git clone https://github.com/hronoses/GameOfDronesDev.git
 ```
 4. In Unity Hub, add the project from the local folder `/GameOfDronesDev/Unity6`
-5. Open the project. Unity editor should start.
+5. Open the project. Unity editor should start. IN the project panel find DroneDetector1 scene and open it.
 6. Press the play button. The game should start building. If successful, it starts streaming information to a ROS2 topic.
+6.1 If the unity outputs the error considering pose publisher, find in hierarchy (left panel) ros2 object, open it, in the inspector panel (right) find PoseStamped publisher and on the published transform field select zala (click circle on the right). 
 7. In a terminal, write:
     ```sh
     ros2 topic list

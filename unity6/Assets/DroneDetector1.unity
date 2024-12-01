@@ -534,8 +534,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d97d3e687ca15f3e974e7bf0071aac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 100
-  speed: 25
+  radius: 50
+  speed: 15
 --- !u!4 &1293049660 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8a8786cac78aa3a2ab97018eb357b2a, type: 3}
@@ -875,11 +875,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8a8786cac78aa3a2ab97018eb357b2a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8a8786cac78aa3a2ab97018eb357b2a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c8a8786cac78aa3a2ab97018eb357b2a, type: 3}
       propertyPath: m_LocalRotation.w
