@@ -1,0 +1,114 @@
+{
+  "configById": {
+    "RawMessages!16yibbt": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/zala_pose",
+      "fontSize": 12
+    },
+    "Image!48xrr9u": {
+      "cameraState": {
+        "distance": 20,
+        "perspective": true,
+        "phi": 60,
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOffset": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "thetaOffset": 45,
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {},
+      "transforms": {},
+      "topics": {},
+      "layers": {},
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {
+        "imageTopic": "/camera_image"
+      }
+    },
+    "Plot!3mygsji": {
+      "paths": [
+        {
+          "value": "/zala_pose.pose.position.x",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "color": "#4e98e2"
+        },
+        {
+          "value": "/zala_pose.pose.position.y",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "color": "#f5774d"
+        },
+        {
+          "value": "/zala_pose.pose.position.z",
+          "enabled": true,
+          "timestampMethod": "receiveTime",
+          "color": "#f7df71"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Tab!3hll2p5": {
+      "activeTabIdx": 0,
+      "tabs": [
+        {
+          "title": "",
+          "layout": {
+            "first": {
+              "first": "RawMessages!16yibbt",
+              "second": "Image!48xrr9u",
+              "direction": "row",
+              "splitPercentage": 49.88636363636363
+            },
+            "second": "Plot!3mygsji",
+            "direction": "column",
+            "splitPercentage": 53.217568947906024
+          }
+        },
+        {
+          "title": ""
+        }
+      ]
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "Tab!3hll2p5"
+}

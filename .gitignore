@@ -1,0 +1,48 @@
+# Ignore the Unity generated folders
+unity6/[Ll]ibrary/
+unity6/[Tt]emp/
+unity6/[Oo]bj/
+unity6/[Bb]uild/
+unity6/[Bb]uilds/
+unity6/[Ll]ogs/
+unity6/[Uu]ser[Ss]ettings/
+
+# Ignore crash reports
+unity6/[Cc]rash[Rr]eports/
+
+# Ignore auto-generated VS/VSCode project files
+unity6/[Aa]ssets/**/*.csproj
+unity6/[Aa]ssets/**/*.unityproj
+unity6/[Aa]ssets/**/*.sln
+unity6/[Aa]ssets/**/*.suo
+unity6/[Aa]ssets/**/*.tmp
+unity6/[Aa]ssets/**/*.user
+unity6/[Aa]ssets/**/*.userprefs
+unity6/[Aa]ssets/**/*.pidb
+unity6/[Aa]ssets/**/*.booproj
+unity6/[Aa]ssets/**/*.svd
+unity6/[Aa]ssets/**/*.pdb
+unity6/[Aa]ssets/**/*.opendb
+unity6/[Aa]ssets/**/*.VC.db
+
+# Ignore Unity3D generated file on crash reports
+unity6/[Ss]ysinfo.txt
+
+# Ignore build artifacts
+unity6/[Bb]uilds/
+
+# Ignore the virtual environment folder
+venv/
+
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore environment variables
+.env
+
+# Ignore log files
+*.log
