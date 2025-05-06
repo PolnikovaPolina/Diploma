@@ -69,12 +69,15 @@ namespace RosSharp.RosBridgeClient
         private void InitializeMessage()
         {
             message = new MessageTypes.Sensor.CompressedImage();
+            message.header = new MessageTypes.Std.Header(); 
             message.header.frame_id = FrameId;
             message.format = "jpeg";
         }
 
         private void UpdateMessage()
         {
+            double t = Time.realtimeSinceStartupAsDouble;
+            message.header.frame_id = t.ToString("F5"); // з точністю до 5 знаків
             message.header.Update();
             texture2D.ReadPixels(rect, 0, 0);
             message.data = texture2D.EncodeToJPG(qualityLevel);

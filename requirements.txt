@@ -2,3 +2,5 @@ rclpy
 opencv-python
 numpy
 sensor-msgs
+pandas
+matplotlib
