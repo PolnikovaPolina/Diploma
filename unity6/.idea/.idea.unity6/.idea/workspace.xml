@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5eee8da-e40f-4821-94f6-13a51112ed6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/analysis_results.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/camera_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/computer_vision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/contour_detection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/mediator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/motion_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/object_detection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/observer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/unscented_filter_kalman.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../game_of_drones/visual_results.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../game_of_drones/camera_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/camera_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DroneDetector1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DroneDetector1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ImagePublisherCustom.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ImagePublisherCustom.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unity6.sln" beforeDir="false" afterPath="$PROJECT_DIR$/unity6.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.unity6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unity6/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VideoRecorder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VideoRecorder.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +18,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/VideoRecorder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS1/Geometry/msg/Pose.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS2/Geometry/msg/Pose.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -56,21 +35,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;pap&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/КПІ/3-курс/Проектування інформаційних систем&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/КПІ/3-курс/Проектування інформаційних систем",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Apps\UnityHub\6000.0.24f1\Editor\Unity.exe" />
@@ -136,7 +115,7 @@
       <workItem from="1746287448725" duration="7467000" />
       <workItem from="1746343593353" duration="7668000" />
       <workItem from="1746453354228" duration="688000" />
-      <workItem from="1746516619864" duration="388000" />
+      <workItem from="1746516619864" duration="4521000" />
     </task>
     <servers />
   </component>
