@@ -1,25 +1,27 @@
-using UnityEngine;
 using RosSharp.RosBridgeClient; // для UnityPublisher
-using RosPose = RosSharp.RosBridgeClient.MessageTypes.Geometry.Pose;
-using RosSharp.RosBridgeClient.MessageTypes.Std; // для Float32MultiArray передаємо масив чисел типу float
+using RosSharp.RosBridgeClient.MessageTypes.Geometry;
 
-public class PoseObject : UnityPublisher<RosPose>
+public class PoseObject : UnityPublisher<Pose>
 {
-    public GameObject target;
-    private RosPose _message;
+    public UnityEngine.GameObject target;
+    private Pose _message;
 
     protected override void Start()
     {
         base.Start();
-        _message = new RosPose();
+        _message = new Pose
+        {
+            position    = new Point(),
+            orientation = new Quaternion()
+        };
     }
 
     private void Update()
     {
         if (!ReferenceEquals(target, null))
         {
-            Vector3 pos = target.transform.position;
-            Quaternion rot = target.transform.rotation;
+            UnityEngine.Vector3 pos = target.transform.position;
+            UnityEngine.Quaternion rot = target.transform.rotation;
             
             _message.position.x = pos.x;
             _message.position.y = pos.y;

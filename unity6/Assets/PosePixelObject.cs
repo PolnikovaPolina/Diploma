@@ -1,19 +1,21 @@
 using UnityEngine;
 using RosSharp.RosBridgeClient; // для UnityPublisher
-using PixelPose = RosSharp.RosBridgeClient.MessageTypes.Std.Float32MultiArray; // для Float32MultiArray передаємо масив чисел типу float
+using RosSharp.RosBridgeClient.MessageTypes.Std; // для Float32MultiArray передаємо масив чисел типу float
 
 
-public class PosePixelObject : UnityPublisher<PixelPose>
+public class PosePixelObject : UnityPublisher<Float32MultiArray>
 {
-    private PixelPose _message;
-    private Camera _mainCamera;
+    private Float32MultiArray _message;
+    public Camera _mainCamera;
     public GameObject target;
 
     protected override void Start()
     {
+        Application.runInBackground = true; // дозволяємо Unity працювати у фоні
         base.Start();
-        _mainCamera = Camera.main; // викликається лише один раз
-        _message = new PixelPose();
+        if (_mainCamera == null)
+            _mainCamera = Camera.main;
+        _message = new Float32MultiArray();
     }
 
     private void Update()

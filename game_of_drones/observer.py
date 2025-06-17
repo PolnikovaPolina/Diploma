@@ -2,7 +2,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy
 
-from sensor_msgs.msg import CompressedImage
+from my_interface.msg import CameraStamped
 from std_msgs.msg import Float32MultiArray
 
 class Observer(Node):
@@ -23,8 +23,8 @@ class Observer(Node):
             qos_profile_unity)
 
         self.cv_sub = self.create_subscription(
-            CompressedImage,
-            '/camera_image',
+            CameraStamped,
+            '/camera_image_status',
             self.camera_image_callback,
             qos_profile_unity)
 

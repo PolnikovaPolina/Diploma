@@ -18,11 +18,13 @@ limitations under the License.
 
 using UnityEngine;
 using UnityEngine.Rendering;
-
+using RosSharp.RosBridgeClient.MessageTypes.Std; // для Float32MultiArray
+using RosSharp.RosBridgeClient.MessageTypes.Sensor; // для CompressedImage
+using RosSharp.RosBridgeClient.MessageTypes.MyInterface;
 
 namespace RosSharp.RosBridgeClient
 {
-    public class ImagePublisher : UnityPublisher<MessageTypes.Sensor.CompressedImage>
+    public class ImagePublisher : UnityPublisher<CameraStamped>
     {
         public Camera ImageCamera;
         public string FrameId = "Camera";
@@ -30,33 +32,35 @@ namespace RosSharp.RosBridgeClient
         public int resolutionHeight = 480;
         [Range(0, 100)]
         public int qualityLevel = 50;
-
-        private MessageTypes.Sensor.CompressedImage message;
+        public GameObject target;
+        private CameraStamped message;
+        
         private Texture2D texture2D;
         private Rect rect;
 
         protected override void Start()
         {
+            Application.runInBackground = true; // дозволяємо Unity працювати у фоні
             base.Start();
             InitializeGameObject();
             InitializeMessage();
-            RenderPipelineManager.endCameraRendering += UpdateImage;
             // Camera.onPostRender += Test;
             // Camera.onPostRender += UpdateImage;
-             // Output a debug message to the console
-            //  Debug.Log("ImagePublisherCustom Start method called");
+            // Output a debug message to the console
+            // Debug.Log("ImagePublisherCustom Start method called");
+            RenderPipelineManager.endCameraRendering += UpdateImage;
 
         }
         void OnDestroy()
         {
             RenderPipelineManager.endCameraRendering -= UpdateImage;
         }
+        
         private void UpdateImage(ScriptableRenderContext context, Camera _camera)
         {
-            // Debug.Log("ImagePublisherCustom UpdateImage method called");
+            //Debug.Log($"[ImagePublisher] UpdateImage called for camera {_camera.name}");
             if (texture2D != null && _camera == this.ImageCamera)
                 UpdateMessage();
-                
         }
 
         private void InitializeGameObject()
@@ -68,10 +72,12 @@ namespace RosSharp.RosBridgeClient
 
         private void InitializeMessage()
         {
-            message = new MessageTypes.Sensor.CompressedImage();
-            message.header = new MessageTypes.Std.Header(); 
-            message.header.frame_id = FrameId;
-            message.format = "jpeg";
+            message = new CameraStamped
+            {
+                header = new Header { frame_id = FrameId },
+                image  = new CompressedImage { format = "jpeg" },
+                status = new Float32MultiArray()
+            };
         }
 
         private void UpdateMessage()
@@ -80,9 +86,26 @@ namespace RosSharp.RosBridgeClient
             message.header.frame_id = t.ToString("F5"); // з точністю до 5 знаків
             message.header.Update();
             texture2D.ReadPixels(rect, 0, 0);
-            message.data = texture2D.EncodeToJPG(qualityLevel);
+            message.image.data = texture2D.EncodeToJPG(qualityLevel);
+            Vector3 camP   = ImageCamera.transform.position;
+            Quaternion camQ = ImageCamera.transform.rotation;
+            Vector3 tgtP   = target.transform.position;
+            // field Of View для обчислення фокусів камери
+            float verticalFovDeg = ImageCamera.fieldOfView;
+            float verticalFovRad = verticalFovDeg * Mathf.Deg2Rad;
+            float aspect = (float)resolutionWidth / resolutionHeight;
+            float horizontalFovRad = 2f * Mathf.Atan(Mathf.Tan(verticalFovRad / 2f) * aspect);
+            float horizontalFovDeg = horizontalFovRad * Mathf.Rad2Deg;
+            Debug.Log($"Vertical FOV: {verticalFovDeg:F2}°, Horizontal FOV: {horizontalFovDeg:F2}°");
+            // Публікація
+            message.status.data = new float[]
+            {
+                verticalFovDeg, horizontalFovDeg,
+                camP.x, camP.y, camP.z,
+                camQ.x, camQ.y, camQ.z, camQ.w,
+                tgtP.x, tgtP.y, tgtP.z
+            };
             Publish(message);
         }
-
     }
 }

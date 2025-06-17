@@ -1,56 +1,57 @@
 using UnityEngine;
-using RosSharp.RosBridgeClient;
-using Float32MultiArray = RosSharp.RosBridgeClient.MessageTypes.Std.Float32MultiArray;
 
-public class CameraTargetSubscriber : UnitySubscriber<Float32MultiArray>
+namespace RosSharp.RosBridgeClient
 {
-    private bool _receivedTarget = false; //Флаг, чи взагалі ми вже отримали хоч одне повідомлення з координатами.
-    public Camera cameraToControl; //Посилання на компонент Camera, яку ми будемо рухати.
-    public float moveSpeed = 2.0f; //Швидкість інтерполяції (смузування) руху камер
-    public float rotationSpeed = 2f;
-    // Нормалізований вектор напрямку променя з камери до цілі,
-    // за яким будемо рухати та повертати камеру
-    private Vector3 _dir;
-    
-    protected override void Start()
+    public class CameraTargetSubscriber : UnitySubscriber<MessageTypes.Geometry.PoseStamped>
     {
-        base.Start();  // підключаємося до RosBridge
-        //Перевіряємо, чи в інспекторі призначена камера:
-        //якщо ні — підставляємо за замовчуванням головну камеру сцени
-        if (cameraToControl == null) 
-            cameraToControl = Camera.main;
-    }
-    
-    protected override void ReceiveMessage(Float32MultiArray message)
-    {
-        if (message.data.Length >= 2)
+        public Transform PublishedTransform;
+
+        private Vector3 position;
+        private Quaternion rotation;
+        private bool isMessageReceived;
+
+        protected override void Start()
         {
-            if (message.data.Length >= 2)
-            {
-                float xNorm = message.data[0];
-                float yNorm = message.data[1];
-                Ray ray = cameraToControl.ViewportPointToRay(
-                    new Vector3(xNorm, yNorm, 0f)
-                );
-                _dir = ray.direction.normalized;
-                _receivedTarget = true;
-            }
+            Application.runInBackground = true;
+            base.Start();
         }
-    }
-    
-    private void Update()
-    {
-        if (!_receivedTarget) return;
+		
+        private void Update()
+        {
+            if (isMessageReceived)
+                ProcessMessage();
+        }
 
-        Transform camT = cameraToControl.transform;
+        protected override void ReceiveMessage(MessageTypes.Geometry.PoseStamped message)
+        {
+            position = GetPosition(message).Ros2Unity();
+            rotation = GetRotation(message).Ros2Unity();
+            isMessageReceived = true;
+        }
 
-        //Поворот
-        Quaternion targetRot = Quaternion.LookRotation(_dir, Vector3.up);
-        camT.rotation = Quaternion.Slerp(
-            camT.rotation, targetRot, Time.deltaTime * rotationSpeed
-        );
+        private void ProcessMessage()
+        {
+            Debug.Log($"PublishedTransform.position: {position:F2}" +
+                      $"PublishedTransform.rotation: {rotation:F2}");
+            PublishedTransform.position = position;
+            PublishedTransform.rotation = rotation;
+        }
 
-        //Рух уперед у напрямку центру кадру
-        camT.position += _dir * moveSpeed * Time.deltaTime;
+        private Vector3 GetPosition(MessageTypes.Geometry.PoseStamped message)
+        {
+            return new Vector3(
+                (float)message.pose.position.x,
+                (float)message.pose.position.y,
+                (float)message.pose.position.z);
+        }
+
+        private Quaternion GetRotation(MessageTypes.Geometry.PoseStamped message)
+        {
+            return new Quaternion(
+                (float)message.pose.orientation.x,
+                (float)message.pose.orientation.y,
+                (float)message.pose.orientation.z,
+                (float)message.pose.orientation.w);
+        }
     }
 }

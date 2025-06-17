@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
 
-from object_detection import DetectionStrategy
-from contour_detection import ContourStrategy
+from GameOfDronesDev.game_of_drones.detection.object_detection import DetectionStrategy
+from GameOfDronesDev.game_of_drones.detection.contour_detection import ContourStrategy
+from my_interface.msg import CameraStamped
 
 class ComputerVision:
 
@@ -18,7 +19,7 @@ class ComputerVision:
     def get_measurement_frame(self, msg):
 
         # Отримання зображення з ROS-повідомлення
-        np_arr = np.frombuffer(msg.data, np.uint8)
+        np_arr = np.frombuffer(msg.image.data, np.uint8)
         frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
 
         self.image_height, self.image_width = frame.shape[:2]
@@ -39,7 +40,7 @@ class ComputerVision:
         # Стратегія знаходження контуру
         largest_contour = self.contour_strategy.find(image)
         if largest_contour is None or len(largest_contour) <= 5:
-            print("Контур не знайдено")
+            #print("Контур не знайдено")
             return {
                 "time": t,
                 "dt": dt,
@@ -47,6 +48,7 @@ class ComputerVision:
                 "centroid": (None, None),
                 "angle": None,
                 "contour": None,
+                "unity_payload": msg.status.data,
                 "image_width": self.image_width,
                 "image_height": self.image_height,
                 "frame": frame
@@ -62,8 +64,18 @@ class ComputerVision:
             cx = int(M["m10"] / M["m00"]) # отримаємо координати одразу не нормалізуємо через візуалізацію
             cy = int(M["m01"] / M["m00"]) # нормалізуємо
             centroid = (cx / self.image_width, cy / self.image_height)
-            angle = 0.5 * np.arctan2(2 * M['mu11'], M['mu20'] - M['mu02'])  # Орієнтація
-            angle = np.mod(angle + np.pi, 2 * np.pi) - np.pi  # ∈[–π,+π]
+            #angle = 0.5 * np.arctan2(2 * M['mu11'], M['mu20'] - M['mu02'])  # Орієнтація
+            #angle = np.mod(angle + np.pi, 2 * np.pi) - np.pi  # ∈[–π,+π]
+
+            eps = 1e-7  # захист від ділення на 0
+            den = M['mu20'] - M['mu02']
+            if abs(den) < eps:  # майже симетрія
+                angle = np.pi / 4 if M['mu11'] > 0 else -np.pi / 4
+            else:
+                angle = 0.5 * np.arctan2(2 * M['mu11'], den)
+
+            # приводимо у [-π, π]
+            angle = (angle + np.pi) % (2 * np.pi) - np.pi # ∈[–π,+π]
             angle_degrees = np.degrees(angle)
 
             return {
@@ -73,6 +85,7 @@ class ComputerVision:
                 "centroid": centroid,
                 "angle": angle,
                 "contour": contour_object,
+                "unity_payload": msg.status.data,
                 "image_width": self.image_width,
                 "image_height": self.image_height,
                 "frame": frame

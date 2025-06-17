@@ -72,7 +72,7 @@ git clone https://github.com/hronoses/GameOfDronesDev.git
     ```
 3. Launch the camera_view.py 
     ```sh
-    python game_of_drones/camera_view.py
+    python game_of_drones/draft.py
     ```
     
     if everything is ok, you should see the camera image and the gradient of the image using Sobel filters. Note how easier it is to locate the drone on the gradient image.

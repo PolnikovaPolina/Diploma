@@ -5,9 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5eee8da-e40f-4821-94f6-13a51112ed6d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../game_of_drones/predict/motion_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../game_of_drones/test/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../game_of_drones/test/test_track.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../game_of_drones/visualization_analysis/analysis_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/analysis_results.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/camera_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/camera_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/camera_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/draft.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/computer_vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/detection/computer_vision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/contour_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/detection/contour_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/combined_full_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/combined_full_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/combined_simple_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/combined_simple_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/compare_full_motion.avi" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/compare_full_motion.avi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/compare_simple_motion.avi" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/compare_simple_motion.avi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/pose_full_motion.avi" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/pose_full_motion.avi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/pose_simple_motion.avi" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/pose_simple_motion.avi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_L2_full_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_L2_full_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_L2_simple_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_L2_simple_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_dx_full_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_dx_full_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_dx_simple_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_dx_simple_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_dy_full_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_dy_full_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/prediction_dy_simple_motion.png" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/prediction_dy_simple_motion.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/results_full_motion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/results_full_motion.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/data/results_simple_motion.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/data/results_simple_motion.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/mediator.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/mediator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/motion_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/object_detection.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/detection/object_detection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/observer.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/observer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/unscented_filter_kalman.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/predict/unscented_filter_kalman.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../game_of_drones/visual_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/../game_of_drones/visualization_analysis/visual_results.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.unity6/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.unity6/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VideoRecorder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/VideoRecorder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp-Editor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraTargetSubscriber.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CameraTargetSubscriber.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DroneDetector1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DroneDetector1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ImagePublisherCustom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ImagePublisherCustom.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PoseObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PoseObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PosePixelObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PosePixelObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SkyandFogSettingsProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SkyandFogSettingsProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/VideoRecorder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/VideoRecorder.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unity6.sln" beforeDir="false" afterPath="$PROJECT_DIR$/unity6.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,14 +61,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/TutorialInfo/Scripts/Editor/VideoRecorder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HitManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS1/Geometry/msg/Pose.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/Libraries/RosBridgeClient/MessageTypes/ROS2/Geometry/msg/Pose.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/Libraries/RosBridgeClient/Serializers/MicrosoftSerializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/RosBridgeClient/RosCommunication/RosConnector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.siemens.ros-sharp/Runtime/RosBridgeClient/RosCommunication/UnitySubscriber.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 2
@@ -35,21 +84,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/КПІ/3-курс/Проектування інформаційних систем",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/КПІ/3-курс/Проектування інформаційних систем&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Apps\UnityHub\6000.0.24f1\Editor\Unity.exe" />
@@ -115,7 +164,35 @@
       <workItem from="1746287448725" duration="7467000" />
       <workItem from="1746343593353" duration="7668000" />
       <workItem from="1746453354228" duration="688000" />
-      <workItem from="1746516619864" duration="4521000" />
+      <workItem from="1746516619864" duration="15137000" />
+      <workItem from="1746543424727" duration="4152000" />
+      <workItem from="1746604212805" duration="64000" />
+      <workItem from="1746610107021" duration="12048000" />
+      <workItem from="1746633457177" duration="315000" />
+      <workItem from="1746691720820" duration="6898000" />
+      <workItem from="1746701261207" duration="8942000" />
+      <workItem from="1746713730135" duration="269000" />
+      <workItem from="1746779085602" duration="849000" />
+      <workItem from="1746781921148" duration="5659000" />
+      <workItem from="1746868521486" duration="16727000" />
+      <workItem from="1746947297767" duration="2160000" />
+      <workItem from="1746987590656" duration="4063000" />
+      <workItem from="1747033540209" duration="23158000" />
+      <workItem from="1747070079110" duration="38782000" />
+      <workItem from="1747295846574" duration="28357000" />
+      <workItem from="1747418431859" duration="4338000" />
+      <workItem from="1747560560383" duration="2216000" />
+      <workItem from="1748433084771" duration="8018000" />
+      <workItem from="1748525394378" duration="5258000" />
+      <workItem from="1748780135850" duration="898000" />
+      <workItem from="1748858270583" duration="122000" />
+      <workItem from="1748933844282" duration="2086000" />
+      <workItem from="1749192936189" duration="4245000" />
+      <workItem from="1749367725517" duration="102000" />
+      <workItem from="1749369700938" duration="3696000" />
+      <workItem from="1749383192562" duration="417000" />
+      <workItem from="1749461023633" duration="6003000" />
+      <workItem from="1749872569996" duration="706000" />
     </task>
     <servers />
   </component>

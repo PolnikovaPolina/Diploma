@@ -1,14 +1,14 @@
-import rclpy, cv2
+import rclpy
 # from rclpy.executors import SingleThreadedExecutor
 
 from observer import Observer
 from mediator import Mediator
-from computer_vision import ComputerVision
-from object_detection import SobelDetection
-from contour_detection import LargestContour
-from unscented_filter_kalman import UnscentedFilterKalman
-from analysis_results import AnalysisResults
-from motion_model import FullMotionModel, SimpleMotionModel
+from GameOfDronesDev.game_of_drones.detection.computer_vision import ComputerVision
+from GameOfDronesDev.game_of_drones.detection.object_detection import SobelDetection
+from GameOfDronesDev.game_of_drones.detection.contour_detection import LargestContour
+from GameOfDronesDev.game_of_drones.predict.unscented_filter_kalman import UnscentedFilterKalman
+from GameOfDronesDev.game_of_drones.predict.motion_model import FullMotionModel
+
 
 def main(args=None):
 
@@ -18,11 +18,12 @@ def main(args=None):
     # Створення екземплярів класів
     cv_processor = ComputerVision(detection_strategy=SobelDetection(), contour_strategy=LargestContour())
 
-    #kalman_filter = UnscentedFilterKalman(FullMotionModel())
-    kalman_filter = UnscentedFilterKalman(SimpleMotionModel())
+    kalman_filter = UnscentedFilterKalman(FullMotionModel())
+    #kalman_filter = UnscentedFilterKalman(SimpleMotionModel())
 
     # Створення Mediator (який буде керувати взаємодією всіх класів)
-    mediator = Mediator(cv_processor, kalman_filter, SHARED_DIR, "simple_motion") #"full_motion" / "simple_motion"
+
+    mediator = Mediator(cv_processor, kalman_filter, 0, SHARED_DIR, "full_motion") #"full_motion" / "simple_motion"
 
     # Створення Observer, який передає дані у Mediator
     observer_node = Observer(mediator, node_name='observer_simple') #'observer_full' / 'observer_simple'
@@ -34,6 +35,7 @@ def main(args=None):
         print("Зупинено користувачем (Ctrl+C)")
     finally:
         observer_node.mediator.analysis_results.save_all()
+        observer_node.mediator.close_writers()
         observer_node.destroy_node()
         rclpy.shutdown()
         print("Усі вузли зупинені.")

@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "2d817a602563e5fbbf3707c156efeb4e6a41a85d"
+      "hash": "a8c5e50dc6c601385cef8da2c9a5a646b9d23417"
     },
     "com.unity.bindings.openimageio": {
       "version": "1.0.0",

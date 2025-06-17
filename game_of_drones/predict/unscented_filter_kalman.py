@@ -25,19 +25,23 @@ class UnscentedFilterKalman:
         self.image_width = measurement_frame["image_width"]
         self.image_height = measurement_frame["image_height"]
 
-        self.z = self.motion_model.count_element_measurement(measurement_frame)
+        self.z = self.motion_model.count_element_measurement(valid, measurement_frame)
         init_state = self.motion_model.add_state_for_initialize(valid, self.z, self.t)
 
         if init_state is not None:
             self.x, self.dt = init_state
-            print(f"Initial State:\n{np.round(self.x, 3)}")
-            print(f"dt: {self.dt:.3f}")
+            #print(f"Initial State:\n{np.round(self.x, 3)}")
+            #print(f"dt: {self.dt:.3f}")
             self.P, self.Q, self.R = self.motion_model.initialize_filter(self.image_width, self.image_height)
             return {
                 "time": self.t,
+                "dt": self.dt,
                 "predicted": self.x.tolist(),  # [x, y, v_x, v_y, a_x, a_y ,θ, v_θ, a_θ]
                 "image_width": self.image_width,
-                "image_height": self.image_height }
+                "image_height": self.image_height,
+                "P": self.P.tolist(),
+                "Q": self.Q.tolist()
+            }
 
         if self.x is None or self.P is None:
             return None  # ще не ініціалізовано
@@ -61,7 +65,9 @@ class UnscentedFilterKalman:
         p_pred = matrix_pred_without_noise + self.Q
 
         if not valid:
-            print("Вимірювання не доступне. Лише прогноз без корекції.")
+            #print("Вимірювання не доступне. Лише прогноз без корекції.")
+            state_residual = self.x.reshape(-1, 1) - x_pred.reshape(-1, 1)
+            self.Q = self.beta_Q * self.Q + (1 - self.beta_Q) * (state_residual @ state_residual.T)
             self.x = x_pred
             self.P = p_pred
 
@@ -109,12 +115,16 @@ class UnscentedFilterKalman:
 
         return {
             "time": self.t,
-            "predicted": self.x.tolist(),  # [x, y, v_x, v_y, a_x, a_y ,θ, v_θ, a_θ]
+            "dt": self.dt,
+            "predicted": self.x.tolist(),  # [x, y, v_x, v_y, a_x, a_y ,θ, v_θ, a_θ, u_x, u_y, u_v_x, u_v_y, u_a_x, u_a_y]
+            "P": self.P.tolist(),
+            "Q": self.Q.tolist(),
             "image_width": self.image_width,
             "image_height": self.image_height
         }
 
-    def generate_sigma_points(self, x, P, alpha=1e-3, beta=2, kappa=0):
+    @staticmethod
+    def generate_sigma_points(x, P, alpha=1e-3, beta=2, kappa=0):
         n = x.shape[0]
         lam = alpha ** 2 * (n + kappa) - n
         c = n + lam
